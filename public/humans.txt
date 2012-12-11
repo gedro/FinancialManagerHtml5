@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Zsolt Nagy -- developer -- http://www.linkedin.com/pub/zsolt-nagy/58/b18/683
+    Gábor Harsányi -- developer -- http://www.linkedin.com/in/gaborharsanyi
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr, RequireJS
+    Zend Framework
