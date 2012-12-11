@@ -11,26 +11,59 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
-    <head>
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
         <title>Financial Manager - HTML5 course assignment</title>
         
        	<meta name="copyright" content="(c) Copyright 2012 Zsolt Nagy & Gábor Harsányi. All Rights Reserved." />
 		<meta name="author" content="Zsolt Nagy, Gábor Harsányi" />
         <meta name="description" content="Sample HTML5 web application">
         <meta name="robots" content="index, follow" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Facebook related meta properties -->
+	    <meta property="og:type"                 content="Financial Manager - HTML5 course assignment"> 
+	    <meta property="og:url"                  content="http://financialmanager.my.phpcloud.com">
+	    <meta property="og:site_name"            content="Financial Manager">
+	    <meta property="og:image"                content="http://financialmanager.my.phpcloud.com/img/financialmanager.png">
+	    <meta property="og:title"                content="Sample project to use HTML5 related tools">
+	    <meta property="og:description"          content="It is a sample web application using Zend Framework Rest services as backend and a lot of HTML5 frontend technologies: HTML5 Boilerplate, Twitter Bootstrap, jQuery, jQuery UI, Modernizr, RequireJS, Normalize.css, Google Analytics"> 
+	    <meta property="article:tag"             content="HTML5 Boilerplate Twitter Bootstrap jQuery jQueryUI Modernizr RequireJS Normalize.css Google Analytics JAMK ZendFramework Rest">
 
+	    <!-- Cache used remote domains -->
+        <link rel="dns-prefetch" href="//google-analytics.com">
+        <link rel="dns-prefetch" href="//ajax.googleapis.com">
+        
+        <!-- favicon -->
+        <link rel="icon" type="image/png" href="/favicon.ico" />
+        
+        <!-- Sitemap -->
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemapindex.xml">
+        
+        <!-- RSS -->
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+        
+        <!-- Pingback -->
+        <link rel="pingback" href="http://financialmanager.my.phpcloud.com/pingback">
+        
+        <!-- OpenSearch plugins for Firefox -->
+        <link rel="search" type="application/opensearchdescription+xml" title="Financial Manager: By Shop" href="http://financialmanager.my.phpcloud.com/opensearch_byshop.xml">
+		<link rel="search" type="application/opensearchdescription+xml" title="Financial Manager: By Bought Item" href="http://financialmanager.my.phpcloud.com/opensearch_byitem.xml">
+        
+        <!-- Default CSS styling with Normalize.css -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         
 		<!-- jQuery UI -->
 		<link rel="stylesheet" href="js/lib/jquery-ui-1.9.1/themes/smoothness/jquery.ui.all.css">
 
-		<!-- Bootstrap -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Twitter Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/table_sort.css" rel="stylesheet">
         
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -45,8 +78,57 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world!</p>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+					<a class="brand" href="index.php">Yellow Pages</a>
+					<div class="nav-collapse collapse navbar-responsive-collapse">
+						<div class="span3 offset4">
+							<form action="index.php?generate" method="POST" style="margin: 0px">
+								<button type="submit" id="generateDummyBtn" class="btn btn-danger">
+									Generate 100 dummy data
+								</button>
+							</form>
+						</div>
+					</div><!-- /.nav-collapse -->
+				</div>
+			</div><!-- /navbar-inner -->
+		</div><!-- /navbar -->
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span2">
+					<form class="form-search">
+						<div class="row-fluid">
+							<input id="search_first_name" type="text" class="input-medium search-query typeahead"
+							placeholder="First name" data-provide="typeahead" data-items="4">
+						</div>
+						<div class="row-fluid">
+							<input id="search_last_name" type="text" class="input-medium search-query typeahead"
+							placeholder="Last name" data-provide="typeahead" data-items="4">
+						</div>
+						<div class="row-fluid">
+							<input id="search_phone_number" type="text" class="input-medium search-query typeahead"
+							placeholder="Phone number" data-provide="typeahead" data-items="4">
+						</div>
+					</form>
+				</div>
+				<div class="span10">
+					<table class="table table-striped" id="yp_table">
+						<thead>
+							<tr>
+								<th class="header">#</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Phone number</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 
 		<script type="text/javascript">
 		
