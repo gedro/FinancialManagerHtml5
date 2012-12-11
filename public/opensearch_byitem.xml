@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Financial Manager: By Bought Item</ShortName>
+  <Description>Search on the http://financialmanager.my.phpcloud.com/ by bought item</Description>
+  <Image height="16" width="16" type="image/x-icon">http://financialmanager.my.phpcloud.com/favicon.ico</Image>
+  <Url type="text/html" method="GET" template="http://financialmanager.my.phpcloud.com/osearch_byitem">
+    <Param name="search" value="{searchTerms}"/>
+  </Url>
+  <Url type="application/x-suggestions+json" template="http://financialmanager.my.phpcloud.com/osuggestion_byitem"/>
+  <Url rel="self" type="application/opensearchdescription+xml" template="http://financialmanager.my.phpcloud.com/opensearch_byitem.xml" />
+  <AdultContent>false</AdultContent>
+  <InputEncoding>UTF-8</InputEncoding>
+  <moz:SearchForm>searchFormURL</moz:SearchForm>
+</OpenSearchDescription>
