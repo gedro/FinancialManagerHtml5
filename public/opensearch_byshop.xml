@@ -4,8 +4,7 @@
   <ShortName>Financial Manager: By Shop</ShortName>
   <Description>Search on the http://financialmanager.my.phpcloud.com/ by shops' name</Description>
   <Image height="16" width="16" type="image/x-icon">http://financialmanager.my.phpcloud.com/favicon.ico</Image>
-  <Url type="text/html" method="GET" template="http://financialmanager.my.phpcloud.com/api/osearch_byshop">
-	<Param name="search" value="{searchTerms}"/>
+  <Url type="text/html" method="GET" template="http://financialmanager.my.phpcloud.com/index.php?shop={searchTerms}">
   </Url>
   <Url type="application/x-suggestions+json" template="http://financialmanager.my.phpcloud.com/api/suggestshop?q={searchTerms}"/>
   <Url rel="self" type="application/opensearchdescription+xml" template="http://financialmanager.my.phpcloud.com/opensearch_byshop.xml" />

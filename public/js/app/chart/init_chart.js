@@ -5,11 +5,13 @@ require([ 'jquery', 'app/dataprovider/dataprovider', 'app/video/videoplayer',
 	$(document).ready(
 			function() {
 				var chartManager = new FinancialManagerChart(document.getElementById('chartCanvas').getContext('2d'));
+				var chartManager2 = new FinancialManagerChart(document.getElementById('chartCanvas2').getContext('2d'));
 
 				var videoPlayer = new VideoPlayer();
 				
 				var dataProvider = new DataProvider();
 				dataProvider.registerObserver(chartManager);
+				dataProvider.registerObserver(chartManager2);
 				dataProvider.registerObserver(videoPlayer);
 
 				dataProvider.incomes = testData.incomes[0];
@@ -17,9 +19,12 @@ require([ 'jquery', 'app/dataprovider/dataprovider', 'app/video/videoplayer',
 				dataProvider.notifyObservers();
 
 				window.setTimeout(function() {
-					dataProvider.incomes = testData.incomes[1];
-					dataProvider.costs = testData.costs[1];
-					dataProvider.notifyObservers();
-				}, 3000);
+					$.getJSON('/api/chartprovider', {
+					}, function(data) {
+						dataProvider.incomes = data.incomes;
+						dataProvider.costs = data.costs;
+						dataProvider.notifyObservers();
+					});
+				}, 1000);
 			});
 });

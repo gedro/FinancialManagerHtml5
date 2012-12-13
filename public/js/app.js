@@ -10,7 +10,7 @@ requirejs.config({
 });
 
 // Start the main app logic.
-require(['modernizr', 'jquery', 'app/typeaheads', 'app/datatable_filter', 'app/chart/init_chart']);
+require(['modernizr', 'jquery', 'app/datatable_filter', 'app/typeaheads', 'app/chart/init_chart']);
 
 requirejs.onError = function(err) {
 	console.log(err.requireType);
