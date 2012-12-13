@@ -546,13 +546,12 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # ----------------------------------------------------------------------
 
 <IfModule mod_rewrite.c>
-	RewriteCond %{REQUEST_FILENAME} -s [OR] # The request is a regular file with size > 0
-	RewriteCond %{REQUEST_FILENAME} -l [OR] # The request is to a file that is a symlink
-	RewriteCond %{REQUEST_FILENAME} -d [OR] # The request is to a directory that exists
-	
-	# if any of the above conditions are true, then simply handle the request as-is
+	Options +FollowSymlinks
+	 
+	RewriteCond %{REQUEST_FILENAME} -s [OR]
+	RewriteCond %{REQUEST_FILENAME} -l [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteBase /
 	RewriteRule ^.*$ - [NC,L]
-	
-	# if none of the above match, then rewrite to index.php
 	RewriteRule ^.*$ index.php [NC,L]
 </IfModule>
