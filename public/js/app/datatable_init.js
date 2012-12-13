@@ -95,7 +95,7 @@ require(['jquery', 'jqueryui/datatables'], function($) {
 	$(document).ready(function() {
 		$('#yp_table').dataTable({
         	"bServerSide": true,
-        	"sAjaxSource": "index.php?yellowpage",
+        	"sAjaxSource": "/api/item",
         	"sServerMethod": "GET",
 			"sDom" : "t<'row'<'pagination pagination-right'p>>",
 			"sPaginationType" : "bootstrap",

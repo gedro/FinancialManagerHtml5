@@ -1,42 +1,29 @@
 require(['jquery', 'app/datatable_init'], function($) {
-	function fnFilterFirstName() {
+	function fnFilterShop() {
 		$('#yp_table').dataTable().fnFilter(
-			$("#search_first_name").val(), 1);
+			$("#search_shop").val(), 1);
 	}
 
-	function fnFilterLastName() {
+	function fnFilterItem() {
 		$('#yp_table').dataTable().fnFilter(
-			$("#search_last_name").val(), 2);
-	}
-	
-	function fnFilterPhoneNumber() {
-		$('#yp_table').dataTable().fnFilter(
-			$("#search_phone_number").val(), 3);
+			$("#search_item").val(), 2);
 	}
 
 	$(document).ready(function() {
-		$("#search_first_name").keyup(function() {
-			fnFilterFirstName();
+		$("#search_shop").keyup(function() {
+			fnFilterShop();
 		});
 		
-		$("#search_last_name").keyup(function() {
-			fnFilterLastName();
+		$("#search_item").keyup(function() {
+			fnFilterItem();
 		});
 		
-		$("#search_phone_number").keyup(function() {
-			fnFilterPhoneNumber();
+		$("#search_shop").on('change', function() {
+			fnFilterShop();
 		});
 		
-		$("#search_first_name").on('change', function() {
-			fnFilterFirstName();
-		});
-		
-		$("#search_last_name").on('change', function() {
-			fnFilterLastName();
-		});
-		
-		$("#search_phone_number").on('change', function() {
-			fnFilterPhoneNumber();
+		$("#search_item").on('change', function() {
+			fnFilterItem();
 		});
 		
 	});
