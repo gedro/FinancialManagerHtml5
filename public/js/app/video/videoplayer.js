@@ -3,9 +3,10 @@ define([ 'require', 'jquery', './video_defaults', 'jqueryui/dialog' ], function(
 	return function() {
 		this.divElement = null;
 		this.vid = null;
+		this.closed = false;
 
 		this.notify = function(dataProvider) {
-			if (dataProvider.getBalance() > 0) {
+			if (dataProvider.getBalance() > 0 || this.closed == true) {
 				return;
 			}
 
@@ -18,6 +19,7 @@ define([ 'require', 'jquery', './video_defaults', 'jqueryui/dialog' ], function(
 				width : 680,
 				modal : true
 			});
+			this.closed = true;
 
 			setTimeout(function() {
 				document.getElementById('video_player').play();

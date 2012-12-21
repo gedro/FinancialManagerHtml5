@@ -3,7 +3,7 @@
 class Api_Model_Item extends Api_Model_Db {
 	
 	private $aColumns = array( 'id', 'shop', 'item', 'count', 'price' );
-
+	
 	function getCount() {
 		$stmt = $this -> db_conn -> prepare('SELECT COUNT(*) sum FROM item');
 		$stmt -> execute();

@@ -21,7 +21,7 @@ define([ "./chartdata", "./chart_defaults" ], function(ChartData, config) {
 			}
 		};
 
-		this.setChartColors = function( colors ) {
+		this.setChartColors = function(colors) {
 			for ( var i = 0; i < colors.length; i++) {
 				chartDatas[i].chartColor = colors[i];
 			}
@@ -60,17 +60,25 @@ define([ "./chartdata", "./chart_defaults" ], function(ChartData, config) {
 		this.animate = function(interval) {
 			var chart = this;
 			var elapsed = 0;
-			timerId = window.setInterval(function() {
+			var timerId = window.setInterval(function() {
 				elapsed += 0.01 / interval;
 				if (elapsed > 1) {
-					if (timerId != null) {
-						window.clearInterval(timerId);
-					}
-					chart.draw(1); // there may be some mistake with calculations
+					// if (timerId != null) {
+					// window.clearInterval(timerId);
+					// }
+					chart.draw(1); // there may be some mistake with
+									// calculations
+					return;
 				} else {
 					chart.draw(elapsed);
 				}
 			}, 10);
+
+			window.setTimeout(function() {
+				if (timerId != null) {
+					window.clearInterval(timerId);
+				}
+			}, 1100);
 		};
 	};
 });

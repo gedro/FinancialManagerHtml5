@@ -1,18 +1,23 @@
 <?php
+
 class Api_ChartproviderController extends REST_Controller {
+	public function init() {
+		$this->model = new Api_Model_Item ();
+	}
+	
 	public function indexAction() {
 		$this->view->incomes = $this->genarateDummy();
 		$this->view->costs = $this->genarateDummy();
 		$this->_response->ok ();
 	}
 	
-	private function genarateDummy() {
+	public function genarateDummy() {
 		$ret = array();
 		$max = rand(6, 10);
-		for($i = 3; $i < max; $i++) {
+		for($i = 3; $i < $max; $i++) {
 			$ret[] = rand(1, 99) / 100;
 		}
-		
+	
 		return $ret;
 	}
 	
@@ -44,11 +49,5 @@ class Api_ChartproviderController extends REST_Controller {
 		// TODO Auto-generated method stub
 	}
 	
-	/*
-	 * (non-PHPdoc) @see Zend_Controller_Action_Interface::__construct()
-	 */
-	public function __construct(Zend_Controller_Request_Abstract $request, Zend_Controller_Response_Abstract $response, array $invokeArgs = array()) {
-		// TODO Auto-generated method stub
-	}
 }
 ?>
